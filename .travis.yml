@@ -30,7 +30,10 @@ before_install:
   # we need to register travis to allow subuid/gid for the rootless execution
   - echo "travis:110000:65535" | sudo tee /etc/subuid
   - echo "travis:110000:65535" | sudo tee /etc/subgid
-
+  - |
+    if [[ "${TRAVIS_CPU_ARCH}" == "ppc64le" ]]; then
+  	sudo chown -Rvf $USER:$GROUP ~/.cache/pip/wheels
+     fi
 install:
   - pip install coveralls
 
