@@ -7,7 +7,9 @@ env:
   - DIST=fedoradev
   - DIST=opensuselp15
   - DIST=opensusetw
-
+arch:
+  - ppc64le
+  - amd64
 # podman is currently not in Ubuntu
 addons:
   apt:
